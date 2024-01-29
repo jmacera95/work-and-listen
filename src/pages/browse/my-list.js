@@ -4,12 +4,12 @@ import NavBar from "@/components/navbar/navbar";
 import Head from "next/head";
 import SectionCards from "@/components/card/section-cards";
 
-import useRedirectUser from "@/hooks/redirectUser";
+import UseRedirectUser from "@/hooks/redirectUser";
 import { getFavouritedVideos } from "@/lib/videos";
 
 
 export async function getServerSideProps(context) {
-    const { token, userId } = await useRedirectUser(context);
+    const { token, userId } = await UseRedirectUser(context);
 
     const myListVideos = await getFavouritedVideos(token, userId);
     return { props: { myListVideos } };

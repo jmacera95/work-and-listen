@@ -6,10 +6,10 @@ import Banner from "@/components/banner/banner";
 import SectionCards from "@/components/card/section-cards";
 
 import { getPopularVideos, getVideos, getWatchItAgainVideos } from "@/lib/videos";
-import useRedirectUser from "@/hooks/redirectUser";
+import UseRedirectUser from "@/hooks/redirectUser";
 
 export async function getServerSideProps(context) {
-  const { token, userId } = await useRedirectUser(context);
+  const { token, userId } = await UseRedirectUser(context);
 
   const watchItAgainVideos = await getWatchItAgainVideos(token, userId);
   const tinyDeskVideos = await getVideos("tiny desk");
